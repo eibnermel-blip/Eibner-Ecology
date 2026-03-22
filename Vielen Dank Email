@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vielen Dank</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align:center;
+  padding:50px;
+  background:#f4f4f4;
+}
+
+.box {
+  background:white;
+  padding:40px;
+  border-radius:10px;
+  max-width:500px;
+  margin:auto;
+}
+
+h1 {
+  color:#3b4d3b;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+<h1>Vielen Dank!</h1>
+<p>Ihre Nachricht wurde erfolgreich versendet.</p>
+<p>Wir melden uns so schnell wie möglich bei Ihnen.</p>
+</div>
+
+</body>
+</html>
