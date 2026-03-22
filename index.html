@@ -21,7 +21,58 @@ header{
  h1, h2 {
   font-family: 'Orbitron', sans-serif;
 }
+  section class="hero">
+  <div class="hero-overlay">
+    <h2>Professionelle ökologische Dienstleistungen</h2>
+    <p>Monitoring, Kartierung und Analyse von Arten – von Vögeln bis Genomsequenzen</p>
+  </div>
+</section>
+.hero {
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80'); /* example image, you can replace */
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
 
+.hero-overlay {
+  background: rgba(59, 77, 59, 0.6); /* moss-green overlay with transparency */
+  padding: 40px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.hero h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+}
+  <section class="services">
+  <h2>Unsere Leistungen</h2>
+  <div class="service-boxes">
+    <div class="service-box">
+      <h3>Artmonitoring</h3>
+      <p>Vögel, Fledermäuse, Reptilien, Insekten, Makrobenthos und kleine Säugetiere überwachen</p>
+    </div>
+    <div class="service-box">
+      <h3>Kartierung & Trapping</h3>
+      <p>Professionelle Feldarbeiten inklusive Fallenaufstellung und Gebietskartierung</p>
+    </div>
+    <div class="service-box">
+      <h3>Genomanalyse</h3>
+      <p>Extraktion und Analyse von DNA-/Genomdaten zur Unterstützung ökologischer Studien</p>
+    </div>
+  </div>
+</section>
 section{
   padding:40px;
   max-width:900px;
