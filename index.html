@@ -61,22 +61,97 @@ header{
 <section class="services">
   <h2>Unsere Leistungen</h2>
   <div class="service-boxes">
+
+    <!-- Service Box 1 -->
     <div class="service-box">
       <h3>Artmonitoring</h3>
-      <p>Vögel, Fledermäuse, Reptilien, Insekten, Makrobenthos und kleine Säugetiere überwachen</p>
+      <ul class="icon-list">
+        <li>🕊 Vögel</li>
+        <li>🦇 Fledermäuse</li>
+        <li>🦎 Reptilien</li>
+        <li>🐜 Insekten</li>
+        <li>🐚 Makrobenthos</li>
+        <li>🐁 Kleine Säugetiere</li>
+      </ul>
     </div>
+
+    <!-- Service Box 2 -->
     <div class="service-box">
       <h3>Kartierung & Fallen</h3>
-      <p>Professionelle Feldarbeiten inklusive Fallenaufstellung und Gebietskartierung</p>
+      <ul class="icon-list">
+        <li>Gebietskartierung</li>
+        <li>Fallenaufstellung</li>
+        <li>Datenaufnahme im Feld</li>
+        <li>Monitoring vor Ort</li>
+      </ul>
     </div>
+
+    <!-- Service Box 3 -->
     <div class="service-box">
       <h3>Genomanalyse</h3>
-      <p>Extraktion und Analyse von DNA-/Genomdaten zur Unterstützung ökologischer Studien</p>
+      <ul class="icon-list">
+        <li>DNA-Extraktion</li>
+        <li>Sequenzanalyse</li>
+        <li>Artenidentifikation</li>
+        <li>Datenaufbereitung</li>
+      </ul>
     </div>
+
   </div>
 </section>
 
 <style>
+
+.services {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.service-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.service-box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1 1 250px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.service-box:hover {
+  transform: translateY(-5px);
+}
+
+.service-box h3 {
+  color:#3b4d3b;
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom:10px;
+}
+
+.service-box p, .service-box ul {
+  font-family: 'Inter', sans-serif;
+  color:#333;
+  font-size:15px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.service-box ul {
+  margin-top: 10px;
+}
+
+.service-box li {
+  margin-bottom: 5px;
+}
+</style>
 .services {
   max-width: 1000px;
   margin: 50px auto;
@@ -138,7 +213,7 @@ header{
 </section>
 
 <section>
-<h2>Impressum</h2>
+<h2>Kontakt</h2>
 <form action="https://formspree.io/f/mdawvvoo" method="POST">
   
   <label>Name:</label><br>
