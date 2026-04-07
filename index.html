@@ -1,241 +1,249 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
-<title>Eibner Ecological Services</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ökologische Dienstleistungen</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@700&display=swap" rel="stylesheet">
   
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Body */
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
 
-<style>
-body {
-  font-family: 'Inter', sans-serif;
-  margin:0;
-  background:#f4f4f4;
-}
+    /* Eucalyptus Background for sections */
+    .section-box {
+      background-color: #6E7F61; /* eucalyptus green */
+      color: white;
+      padding: 20px;
+      margin: 30px auto;
+      border-radius: 10px;
+      max-width: 1000px;
+    }
 
-header{
-  background:#7b8f7a;
-  color:white;
-  padding:20px;
-  text-align:center;
-}
- h1, h2 {
-  font-family:'Orbitron', sans-serif;
-}
+    /* Accordion Heading */
+    .accordion-title {
+      cursor: pointer;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      margin: 0 0 10px 0;
+      transition: color 0.3s ease;
+    }
 
-.hero {
-  position: relative;
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80');
-  background-size: cover;
-  background-position: center;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
+    .accordion-title:hover {
+      color: #445238;
+    }
 
-.hero-overlay {
-  background: rgba(59, 77, 59, 0.6);
-  padding: 40px;
-  border-radius: 10px;
-  text-align: center;
-}
+    /* Panel */
+    .panel {
+      display: none;
+      padding: 15px 0;
+      color: #333; /* panel text in black for readability */
+      background-color: #e3e7dd; /* light eucalyptus tint */
+      border-radius: 5px;
+    }
 
-  section{
-  padding:40px 20px;
-  max-width:900px;
-  margin:40px auto;
-  background:white;
-  border-radius:10px;
-}
-  
-.hero h2 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
+    /* Paragraph inside panels */
+    .panel p {
+      margin: 0;
+    }
 
-.hero p {
-  font-size: 18px;
-}
+    /* Services Boxes */
+    .service-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+      margin-top: 10px;
+    }
 
+    .service-box {
+      background: white;
+      color: #333;
+      padding: 15px;
+      border-radius: 10px;
+      flex: 1 1 250px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .service-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-box h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: #3b4d3b;
+      margin-bottom: 10px;
+    }
+
+    .service-box ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .service-box li {
+      margin-bottom: 5px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .contact-form button {
+      background-color: #3b4d3b;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-family: 'Orbitron', sans-serif;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #2f3e2f;
+    }
+
+    .success-message {
+      display: none;
+      padding: 10px;
+      background-color: #d4edda;
+      color: #155724;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .service-boxes {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-<h1>Eibner Ecology</h1>
-<p>Ökologische Dienstleistung</p>
-</header>
-
-<section>
-  <h2 class="accordion-title">Über Uns</h2>
-  <div class="panel">
-<p>Mit einem Masterabschluss in Ökologie und Evolutionsbiologie von der Universität Potsdam bietet Georg Eibner spezialisierte ökologische Dienstleistungen an. Seine Arbeit umfasst die Kartierung, Erfassung und das Monitoring verschiedener Arten, darunter Vögel, Fledermäuse, Reptilien, Insekten, Makrobenthos und kleine Säugetiere. Darüber hinaus verfügt er über Expertise in der Extraktion und Analyse genomischer Daten, wodurch detaillierte Biodiversitäts- und Umweltanalysen ermöglicht werde.</p>
-</section>
-
-<section>
-  <h2 class="accordion-title">Unsere Leistungen</h2>
-  <div class="panel">
-  <section class="Unsere Leistungen">
-<button class="accordion">Leistungen</button>
-  <h2>Unsere Leistungen</h2>
-  <div class="service-boxes">
-
-    <div class="service-box">
-      <h3>Artmonitoring</h3>
-      <ul class="icon-list">
-        <li>🕊 Vögel</li>
-        <li>🦇 Fledermäuse</li>
-        <li>🦎 Reptilien</li>
-        <li>🐜 Insekten</li>
-        <li>🐚 Makrobenthos</li>
-        <li>🐁 Kleine Säugetiere</li>
-      </ul>
+  <!-- About Us Section -->
+  <section class="section-box">
+    <h2 class="accordion-title">About Us</h2>
+    <div class="panel">
+      <p>Mein Mann hat einen Master in Ökologie und Evolutionsbiologie von der Uni Potsdam. Er bietet ökologische Dienstleistungen an, einschließlich Monitoring, Kartierung und Analyse verschiedener Arten, darunter Vögel, Fledermäuse, Reptilien, Insekten, Makrobenthos und kleine Säugetiere.</p>
     </div>
+  </section>
 
-    <div class="service-box">
-      <h3>Kartierung & Fallen</h3>
-      <ul class="icon-list">
-        <li>Gebietskartierung</li>
-        <li>Fallenaufstellung</li>
-        <li>Datenaufnahme im Feld</li>
-        <li>Monitoring vor Ort</li>
-      </ul>
+  <!-- Services Section -->
+  <section class="section-box">
+    <h2 class="accordion-title">Leistungen</h2>
+    <div class="panel">
+      <div class="service-boxes">
+
+        <!-- Service Box 1 -->
+        <div class="service-box">
+          <h3>Artmonitoring</h3>
+          <ul>
+            <li>🕊 Vögel</li>
+            <li>🦇 Fledermäuse</li>
+            <li>🦎 Reptilien</li>
+            <li>🐜 Insekten</li>
+            <li>🐚 Makrobenthos</li>
+            <li>🐁 Kleine Säugetiere</li>
+          </ul>
+        </div>
+
+        <!-- Service Box 2 -->
+        <div class="service-box">
+          <h3>Kartierung & Fallen</h3>
+          <ul>
+            <li>Gebietskartierung</li>
+            <li>Fallenaufstellung</li>
+            <li>Datenaufnahme im Feld</li>
+            <li>Monitoring vor Ort</li>
+          </ul>
+        </div>
+
+        <!-- Service Box 3 -->
+        <div class="service-box">
+          <h3>Genomanalyse</h3>
+          <ul>
+            <li>DNA-Extraktion</li>
+            <li>Sequenzanalyse</li>
+            <li>Artenidentifikation</li>
+            <li>Datenaufbereitung</li>
+          </ul>
+        </div>
+
+      </div>
     </div>
+  </section>
 
-    <div class="service-box">
-      <h3>Genomanalyse</h3>
-      <ul class="icon-list">
-        <li>DNA-Extraktion</li>
-        <li>Sequenzanalyse</li>
-        <li>Artenidentifikation</li>
-        <li>Datenaufbereitung</li>
-      </ul>
+  <!-- Contact Section -->
+  <section class="section-box">
+    <h2 class="accordion-title">Kontakt</h2>
+    <div class="panel">
+      <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+        <input type="text" name="name" placeholder="Ihr Name" required>
+        <input type="email" name="email" placeholder="Ihre E-Mail" required>
+        <textarea name="message" rows="5" placeholder="Ihre Nachricht" required></textarea>
+        <button type="submit">Senden</button>
+        <div class="success-message">Vielen Dank! Ihre Nachricht wurde gesendet.</div>
+      </form>
     </div>
+  </section>
 
-  </div>
-</section>
+  <script>
+    // Accordion for headings
+    var accTitles = document.getElementsByClassName("accordion-title");
+    for (var i = 0; i < accTitles.length; i++) {
+      accTitles[i].addEventListener("click", function() {
+        var panel = this.nextElementSibling;
+        if(panel.style.display === "block"){
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
 
-<style>
-
-.services {
-  max-width: 1000px;
-  margin: 50px auto;
-  padding: 0 20px;
-  text-align: center;
-}
-
-.service-boxes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.service-box {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  flex: 1 1 250px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.service-box:hover {
-  transform: translateY(-5px);
-}
-
-.service-box h3 {
-  color:#3b4d3b;
-  font-family: 'Orbitron', sans-serif;
-  margin-bottom:10px;
-}
-
-.service-box p, .service-box ul {
-  font-family: 'Inter', sans-serif;
-  color:#333;
-  font-size:15px;
-  text-align: left;
-  padding-left: 20px;
-}
-
-.service-box ul {
-  margin-top: 10px;
-}
-
-.service-box li {
-  margin-bottom: 5px;
-}
-</style>
-.services {
-  max-width: 1000px;
-  margin: 50px auto;
-  padding: 0 20px;
-  text-align: center;
-}
-
-.service-boxes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.service-box {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  flex: 1 1 250px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.service-box:hover {
-  transform: translateY(-5px);
-}
-
-.service-box h3 {
-  color:#3b4d3b;
-  font-family: 'Orbitron', sans-serif;
-  margin-bottom:10px;
-}
-
-.service-box p {
-  font-family: 'Inter', sans-serif;
-  color:#333;
-  font-size:15px;
-}
-
-</style>
-<p>.</p>
-</section>
-
-<section>
-<h2 class="accordion-title">Über Uns</h2>
-<div class="panel">
-<form action="https://formspree.io/f/mdawvvoo" method="POST">
-  
-  <label>Name:</label><br>
-  <input type="text" name="name" required><br><br>
-
-  <label>Email:</label><br>
-  <input type="email" name="email" required><br><br>
-
-  <label>Message:</label><br>
-  <textarea name="message" rows="5" required></textarea><br><br>
-
-  <button type="submit">Send</button>
-
-</form>
-
-</section>
-
-<footer>
-<p>© 2026 Business Name</p>
-</footer>
+    // Optional: Contact form success message
+    var form = document.querySelector('.contact-form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if(response.ok) {
+          form.querySelector('.success-message').style.display = 'block';
+          form.reset();
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
