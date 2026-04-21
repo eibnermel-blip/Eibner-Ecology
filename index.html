@@ -9,7 +9,88 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
 <style>
+/* Contact section */
+.section{
+  padding:80px 20px;
+  text-align:center;
+}
 
+.section-intro{
+  max-width:600px;
+  margin:0 auto 40px auto;
+}
+
+.contact-form{
+  max-width:600px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  padding:14px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:16px;
+  font-family:'Inter', sans-serif;
+}
+
+.contact-form button{
+  background:#6E7F61;
+  color:white;
+  border:none;
+  padding:14px;
+  font-size:18px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.contact-form button:hover{
+  background:#5c6b52;
+}
+
+.success-message{
+  display:none;
+  color:green;
+  font-weight:600;
+}
+
+.consent{
+  font-size:14px;
+  text-align:left;
+}
+
+/* Legal section (modern layout) */
+.legal{
+  background:#f7f7f7;
+  padding:80px 20px;
+}
+
+.legal-grid{
+  max-width:1000px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  text-align:left;
+}
+
+.legal-box{
+  background:white;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+/* Footer */
+.footer{
+  text-align:center;
+  padding:30px;
+  background:#6E7F61;
+  color:white;
+}
 /* ---------- BASE ---------- */
 html { scroll-behavior:smooth; }
 
@@ -247,22 +328,107 @@ footer{
   </div>
 </section>
 
-<!-- KONTAKT -->
-<section id="kontakt">
-  <h2>Kontakt</h2>
 
-  <!-- PASTE YOUR EXISTING CONTACT FORM HERE -->
-  <p>Hier dein bestehendes Kontaktformular einfügen.</p>
+<!-- KONTAKT + DATENSCHUTZ + IMPRESSUM -->
+<section id="kontakt" class="section">
+
+  <h2>Kontakt</h2>
+  <p class="section-intro">
+    Schreiben Sie uns gerne eine Nachricht – wir melden uns schnellstmöglich zurück.
+  </p>
+
+  <form class="contact-form" action="https://formspree.io/f/mdawvvoo" method="POST">
+
+      <input type="text" name="name" placeholder="Ihr Name" required>
+      <input type="email" name="email" placeholder="Ihre E-Mail" required>
+      <textarea name="message" rows="6" placeholder="Ihre Nachricht" required></textarea>
+
+      <label class="consent">
+        <input type="checkbox" required>
+        Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und für Rückfragen dauerhaft gespeichert werden.
+        Weitere Informationen finden Sie in der <a href="#datenschutz">Datenschutzerklärung</a>.
+      </label>
+
+      <button type="submit">Nachricht senden</button>
+      <p class="success-message">Vielen Dank! Ihre Nachricht wurde gesendet.</p>
+
+  </form>
 
 </section>
 
-<!-- FOOTER / IMPRESSUM -->
-<footer>
-  © 2026 Eibner Ecology  
-  <br><br>
-  Impressum & Datenschutzerklärung ergänzen.  
-  Diese Website verwendet freie Schriftarten von Google Fonts.
+
+
+<section id="datenschutz" class="legal">
+
+  <div class="legal-grid">
+
+    <div class="legal-box">
+      <h3>Datenschutzerklärung</h3>
+      <p>
+      Diese Website verwendet ein Kontaktformular über den Dienst Formspree.
+      Wenn Sie uns per Formular Anfragen zukommen lassen, werden Ihre Angaben aus dem Formular
+      inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage
+      und für den Fall von Anschlussfragen bei uns gespeichert.
+      Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+      </p>
+
+      <p>
+      Die Verarbeitung der Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO,
+      sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung
+      vorvertraglicher Maßnahmen erforderlich ist.
+      </p>
+    </div>
+
+    <div class="legal-box">
+      <h3>Impressum</h3>
+
+      <p><strong>Angaben gemäß § 5 TMG</strong></p>
+
+      <p>
+      Eibner Ecology<br>
+      Georg Eibner<br>
+      Musterstraße 1<br>
+      55116 Mainz<br>
+      Deutschland
+      </p>
+
+      <p>
+      E-Mail: info@eibner-ecology.de
+      </p>
+
+      <p>
+      Verantwortlich für den Inhalt nach §55 Abs.2 RStV:<br>
+      Georg Eibner
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<footer class="footer">
+  © 2026 Eibner Ecology • Alle Rechte vorbehalten
 </footer>
 
-</body>
-</html>
+
+
+<!-- FORM SCRIPT -->
+<script>
+const form = document.querySelector('.contact-form');
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  fetch(form.action,{
+      method:'POST',
+      body:new FormData(form),
+      headers:{'Accept':'application/json'}
+  })
+  .then(response=>{
+      if(response.ok){
+          document.querySelector('.success-message').style.display='block';
+          form.reset();
+      }
+  });
+});
+</script>
