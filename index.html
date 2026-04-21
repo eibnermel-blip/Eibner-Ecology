@@ -9,13 +9,133 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
 <style>
-/* SECTION BASE */
-.section{
-  padding:80px 10%;
-  text-align:center;
+
+/* ---------- BASE ---------- */
+html { scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  font-family:'Inter', sans-serif;
+  background:#F7F3EC;
+  color:#2f3b2f;
 }
 
-/* CONTACT FORM */
+:root{
+  --dark:#5F7157;
+  --mid:#8FA88B;
+  --light:#C7D3C0;
+  --cream:#F7F3EC;
+}
+
+/* ---------- HEADER ---------- */
+header{
+  background:var(--cream);
+  padding:20px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:999;
+  border-bottom:1px solid #ddd;
+}
+
+.logo{
+  width:80px;
+}
+
+.site-title{
+  font-family:'Playfair Display', serif;
+  font-size:42px;
+  margin:0;
+}
+
+nav a{
+  margin-left:20px;
+  text-decoration:none;
+  font-weight:600;
+  color:var(--dark);
+}
+
+nav a:hover{ opacity:.6; }
+
+/* ---------- HERO ---------- */
+.hero{
+  height:70vh;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero img{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  animation:fade 15s infinite;
+}
+
+.hero img:nth-child(1){animation-delay:0s;}
+.hero img:nth-child(2){animation-delay:5s;}
+.hero img:nth-child(3){animation-delay:10s;}
+
+@keyframes fade{
+  0%{opacity:0}
+  10%{opacity:1}
+  30%{opacity:1}
+  40%{opacity:0}
+  100%{opacity:0}
+}
+
+/* ---------- BLURB ---------- */
+.blurb{
+  text-align:center;
+  background:var(--light);
+  padding:60px 15%;
+  font-size:20px;
+}
+
+/* ---------- SECTIONS ---------- */
+section{
+  padding:80px 10%;
+}
+
+h2{
+  font-family:'Playfair Display', serif;
+  font-size:34px;
+  color:var(--dark);
+}
+
+/* ---------- PROFILE ---------- */
+.profile{
+  display:flex;
+  gap:40px;
+  align-items:center;
+}
+
+.profile img{
+  width:350px;
+  border-radius:12px;
+}
+
+/* ---------- SERVICES ---------- */
+.services{
+  background:white;
+}
+
+.service-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+.service-images img{
+  width:100%;
+  margin-bottom:15px;
+  border-radius:10px;
+}
+
+/* ---------- CONTACT ---------- */
 .contact-form{
   max-width:600px;
   margin:0 auto;
@@ -30,7 +150,6 @@
   border-radius:8px;
   border:1px solid #ccc;
   font-size:16px;
-  font-family:'Inter', sans-serif;
 }
 
 .contact-form button{
@@ -53,13 +172,12 @@
   font-weight:600;
 }
 
-/* consent */
 .consent{
   font-size:13px;
   text-align:left;
 }
 
-/* LEGAL SECTION (NO BOX, CLEAN TEXT) */
+/* ---------- LEGAL ---------- */
 .legal{
   padding:80px 10%;
   text-align:left;
@@ -73,141 +191,12 @@
   color:#2f3b2f;
 }
 
-/* FOOTER */
+/* ---------- FOOTER ---------- */
 .footer{
   text-align:center;
   padding:30px;
   background:#6E7F61;
   color:white;
-  margin-top:40px;
-}
-
-/* ---------- HEADER ---------- */
-header{
-  background:var(--cream);
-  padding:20px 40px;
-  display:flex;
-  align-items:center;
-  gap:20px;
-  position:sticky;
-  top:0;
-  z-index:999;
-  border-bottom:1px solid #ddd;
-}
-
-.logo{
-  width:80px;
-}
-
-.site-title{
-  font-family:'Playfair Display', serif;
-  font-size:42px;
-  margin:0;
-}
-
-/* ---------- NAV ---------- */
-nav{
-  margin-left:auto;
-}
-
-nav a{
-  margin-left:25px;
-  text-decoration:none;
-  font-weight:600;
-  color:var(--dark);
-}
-
-nav a:hover{ opacity:.7; }
-
-/* ---------- HERO SLIDER ---------- */
-.hero{
-  height:70vh;
-  overflow:hidden;
-  position:relative;
-}
-
-.hero img{
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  opacity:0;
-  animation:heroSlide 15s infinite;
-}
-
-.hero img:nth-child(1){animation-delay:0s;}
-.hero img:nth-child(2){animation-delay:5s;}
-.hero img:nth-child(3){animation-delay:10s;}
-
-@keyframes heroSlide{
-  0%{opacity:0}
-  10%{opacity:1}
-  30%{opacity:1}
-  40%{opacity:0}
-  100%{opacity:0}
-}
-
-/* ---------- SECTION GENERIC ---------- */
-section{
-  padding:80px 10%;
-}
-
-h2{
-  font-family:'Playfair Display', serif;
-  color:var(--dark);
-  font-size:34px;
-}
-
-/* ---------- BLURB ---------- */
-.blurb{
-  text-align:center;
-  background:var(--light);
-  padding:60px 15%;
-  font-size:20px;
-}
-
-/* ---------- PROFIL ---------- */
-.profile{
-  display:flex;
-  gap:50px;
-  align-items:center;
-}
-
-.profile img{
-  width:350px;
-  border-radius:12px;
-}
-
-/* ---------- LEISTUNGEN ---------- */
-.services{
-  background:white;
-}
-
-.service-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-}
-
-.service-images img{
-  width:100%;
-  margin-bottom:20px;
-  border-radius:10px;
-}
-
-/* ---------- LINKS ---------- */
-.links a{
-  display:block;
-  margin:10px 0;
-  color:var(--dark);
-}
-
-/* ---------- FOOTER ---------- */
-footer{
-  background:var(--dark);
-  color:white;
-  padding:40px 10%;
-  font-size:14px;
 }
 
 /* ---------- MOBILE ---------- */
@@ -224,7 +213,6 @@ footer{
 
 <!-- HEADER -->
 <header>
-  <!-- LOGO: replace file -->
   <img src="images/logo.png" class="logo">
   <h1 class="site-title">Eibner Ecology</h1>
 
@@ -238,7 +226,6 @@ footer{
 
 <!-- HERO -->
 <div class="hero">
-  <!-- REPLACE THESE 3 IMAGES -->
   <img src="images/hero1.jpg">
   <img src="images/hero2.jpg">
   <img src="images/hero3.jpg">
@@ -246,22 +233,20 @@ footer{
 
 <!-- BLURB -->
 <div class="blurb">
-  Ökologische Gutachten, Artenschutz und Umweltberatung für
-  nachhaltige Projekte und verantwortungsvolle Planung.
+  Ökologische Gutachten, Artenschutz und Umweltberatung für nachhaltige Projekte.
 </div>
 
 <!-- PROFIL -->
 <section id="profil">
   <h2>Profil</h2>
+
   <div class="profile">
     <div>
       <p>
-      Hier kommt euer Profiltext hin. Ausbildung, Erfahrung,
-      Spezialisierungen, Philosophie und Arbeitsweise.
+        Hier kommt euer Profiltext hin.
       </p>
     </div>
 
-    <!-- Replace husband photo -->
     <img src="images/profil.jpg">
   </div>
 </section>
@@ -276,17 +261,15 @@ footer{
         <li>Artenschutzgutachten</li>
         <li>Habitatkartierung</li>
         <li>Umweltbaubegleitung</li>
-        <li>FFH-Verträglichkeitsprüfung</li>
+        <li>FFH-Prüfung</li>
         <li>Faunistische Erfassungen</li>
         <li>Ökologische Beratung</li>
       </ul>
     </div>
 
     <div class="service-images">
-      <!-- Add 1–3 images here -->
       <img src="images/service1.jpg">
       <img src="images/service2.jpg">
-      <img src="images/service3.jpg">
     </div>
   </div>
 </section>
@@ -294,23 +277,15 @@ footer{
 <!-- LINKS -->
 <section id="links">
   <h2>Links</h2>
-  <div class="links">
-    <a href="#">Beispiel Link 1</a>
-    <a href="#">Beispiel Link 2</a>
-    <a href="#">Beispiel Link 3</a>
-  </div>
+  <p>Hier kommen eure externen Links.</p>
 </section>
 
-
-<!-- KONTAKT + DATENSCHUTZ + IMPRESSUM -->
-<section id="kontakt" class="section">
+<!-- CONTACT -->
+<section id="kontakt">
 
   <h2>Kontakt</h2>
-  <p class="section-intro">
-    Schreiben Sie uns gerne eine Nachricht – wir melden uns schnellstmöglich zurück.
-  </p>
 
-  <form class="contact-form" action="hhttps://formspree.io/f/mdawvvoo" method="POST">
+  <form class="contact-form" action="https://formspree.io/f/mdawvvoo" method="POST">
 
       <input type="text" name="name" placeholder="Ihr Name" required>
       <input type="email" name="email" placeholder="Ihre E-Mail" required>
@@ -329,9 +304,7 @@ footer{
 
 </section>
 
-
-
-<!-- IMPRESSUM + DATENSCHUTZ (SIMPLE TEXT VERSION) -->
+<!-- LEGAL -->
 <section id="legal" class="legal">
 
   <h3>Impressum</h3>
@@ -348,30 +321,20 @@ footer{
     Verantwortlich gemäß §55 Abs. 2 RStV: Georg Eibner
   </p>
 
-
-
   <h3>Datenschutz</h3>
 
   <p>
     Diese Website verwendet ein Kontaktformular über Formspree.
-    Die eingegebenen Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet
-    und nicht an Dritte weitergegeben.<br><br>
-
-    Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO.<br><br>
-
-    Es werden keine Tracking-Cookies oder Analyse-Tools verwendet.
+    Daten werden nur zur Bearbeitung der Anfrage genutzt und nicht weitergegeben.
+    Keine Tracking-Cookies oder Analyse-Tools.
   </p>
 
 </section>
 
-
-
 <!-- FOOTER -->
 <footer class="footer">
-  © 2026 Eibner Ecology – Alle Rechte vorbehalten
+  © 2026 Eibner Ecology
 </footer>
-
-
 
 <!-- FORM SCRIPT -->
 <script>
@@ -381,13 +344,13 @@ form.addEventListener('submit', function(e){
   e.preventDefault();
 
   fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
+      method:'POST',
+      body:new FormData(form),
+      headers:{'Accept':'application/json'}
   })
-  .then(response => {
+  .then(response=>{
       if(response.ok){
-          document.querySelector('.success-message').style.display = 'block';
+          document.querySelector('.success-message').style.display='block';
           form.reset();
       }
   });
@@ -395,8 +358,5 @@ form.addEventListener('submit', function(e){
 });
 </script>
 
-  
-
-
-
-      
+</body>
+</html>
