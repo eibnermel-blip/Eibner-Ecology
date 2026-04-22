@@ -3,358 +3,126 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Eibner Ecology</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
 <style>
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:Inter;background:#F7F3EC;color:#2f3b2f;}
+:root{--dark:#5F7157;--light:#C7D3C0;--cream:#F7F3EC;}
 
-/* ---------- BASE ---------- */
-html { scroll-behavior:smooth; }
-
-body{
-  margin:0;
-  font-family:'Inter', sans-serif;
-  background:#F7F3EC;
-  color:#2f3b2f;
-}
-
-:root{
-  --dark:#5F7157;
-  --mid:#8FA88B;
-  --light:#C7D3C0;
-  --cream:#F7F3EC;
-}
-
-/* ---------- HEADER ---------- */
+/* HEADER */
 header{
   background:var(--cream);
   padding:20px 40px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  position:sticky;
-  top:0;
-  z-index:999;
+  align-items:center;
   border-bottom:1px solid #ddd;
 }
+.site-title{font-family:Playfair Display;font-size:42px;margin:0;}
+nav a{margin-left:20px;text-decoration:none;color:var(--dark);font-weight:600;}
 
-.logo{
-  width:80px;
-}
-
-.site-title{
-  font-family:'Playfair Display', serif;
-  font-size:42px;
-  margin:0;
-}
-
-nav a{
-  margin-left:20px;
-  text-decoration:none;
-  font-weight:600;
-  color:var(--dark);
-}
-
-nav a:hover{ opacity:.6; }
-
-/* ---------- HERO ---------- */
-.hero{
-  height:70vh;
-  position:relative;
-  overflow:hidden;
-}
-
-.hero img{
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  opacity:0;
-  animation:fade 15s infinite;
-}
-
+/* HERO */
+.hero{height:70vh;position:relative;overflow:hidden;}
+.hero img{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0;animation:fade 15s infinite;}
 .hero img:nth-child(1){animation-delay:0s;}
 .hero img:nth-child(2){animation-delay:5s;}
 .hero img:nth-child(3){animation-delay:10s;}
+@keyframes fade{0%{opacity:0}10%{opacity:1}30%{opacity:1}40%{opacity:0}100%{opacity:0}}
 
-@keyframes fade{
-  0%{opacity:0}
-  10%{opacity:1}
-  30%{opacity:1}
-  40%{opacity:0}
-  100%{opacity:0}
-}
+section{padding:80px 10%;}
+h2{font-family:Playfair Display;font-size:34px;color:var(--dark);}
 
-/* ---------- BLURB ---------- */
-.blurb{
-  text-align:center;
-  background:var(--light);
-  padding:60px 15%;
-  font-size:20px;
-}
+.contact-form{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:15px;}
+.contact-form input,.contact-form textarea{padding:14px;border-radius:8px;border:1px solid #ccc;}
+.contact-form button{background:#6E7F61;color:white;border:none;padding:14px;font-size:18px;border-radius:8px;}
+.success-message{display:none;color:green;}
+.consent{font-size:13px;text-align:left;}
 
-/* ---------- SECTIONS ---------- */
-section{
-  padding:80px 10%;
-}
-
-h2{
-  font-family:'Playfair Display', serif;
-  font-size:34px;
-  color:var(--dark);
-}
-
-/* ---------- PROFILE ---------- */
-.profile{
-  display:flex;
-  gap:40px;
-  align-items:center;
-}
-
-.profile img{
-  width:350px;
-  border-radius:12px;
-}
-
-/* ---------- SERVICES ---------- */
-.services{
-  background:white;
-}
-
-.service-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-}
-
-.service-images img{
-  width:100%;
-  margin-bottom:15px;
-  border-radius:10px;
-}
-
-/* ---------- CONTACT ---------- */
-.contact-form{
-  max-width:600px;
-  margin:0 auto;
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-}
-
-.contact-form input,
-.contact-form textarea{
-  padding:14px;
-  border-radius:8px;
-  border:1px solid #ccc;
-  font-size:16px;
-}
-
-.contact-form button{
+/* FOOTER */
+.footer{
   background:#6E7F61;
   color:white;
-  border:none;
-  padding:14px;
-  font-size:18px;
-  border-radius:8px;
-  cursor:pointer;
+  text-align:center;
+  padding:40px 20px;
 }
-
-.contact-form button:hover{
-  background:#5c6b52;
-}
-
-.success-message{
-  display:none;
-  color:green;
+.footer a{
+  color:white;
+  margin:0 15px;
+  text-decoration:none;
   font-weight:600;
 }
-
-.consent{
-  font-size:13px;
-  text-align:left;
-}
-
-/* ---------- LEGAL ---------- */
-.legal{
-  padding:80px 10%;
-  text-align:left;
-  max-width:900px;
-  margin:0 auto;
-  color:#444;
-}
-
-.legal h3{
-  margin-top:40px;
-  color:#2f3b2f;
-}
-
-/* ---------- FOOTER ---------- */
-.footer{
-  text-align:center;
-  padding:30px;
-  background:#6E7F61;
-  color:white;
-}
-
-/* ---------- MOBILE ---------- */
-@media(max-width:900px){
-  .profile{flex-direction:column;}
-  .service-grid{grid-template-columns:1fr;}
-  nav{display:none;}
-}
-
+.footer-contact{margin-top:20px;font-size:14px;}
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
-  <img src="images/logo.png" class="logo">
   <h1 class="site-title">Eibner Ecology</h1>
-
   <nav>
     <a href="#profil">Profil</a>
     <a href="#leistungen">Leistungen</a>
-    <a href="#links">Links</a>
     <a href="#kontakt">Kontakt</a>
   </nav>
 </header>
 
-<!-- HERO -->
 <div class="hero">
   <img src="images/hero1.jpg">
   <img src="images/hero2.jpg">
   <img src="images/hero3.jpg">
 </div>
 
-<!-- BLURB -->
-<div class="blurb">
-  Ökologische Gutachten, Artenschutz und Umweltberatung für nachhaltige Projekte.
+<section id="profil">
+<h2>Profil</h2>
+<p>Profiltext hier einfügen.</p>
+</section>
+
+<section id="leistungen">
+<h2>Leistungen</h2>
+<p>Leistungen hier einfügen.</p>
+</section>
+
+<section id="kontakt">
+<h2>Kontakt</h2>
+
+<form class="contact-form" action="https://formspree.io/f/mdawvvoo" method="POST">
+<input type="text" name="name" placeholder="Ihr Name" required>
+<input type="email" name="email" placeholder="Ihre E-Mail" required>
+<textarea name="message" rows="6" placeholder="Ihre Nachricht" required></textarea>
+
+<label class="consent">
+<input type="checkbox" required>
+Ich stimme der Speicherung meiner Daten zur Bearbeitung zu.
+</label>
+
+<button type="submit">Nachricht senden</button>
+<p class="success-message">Vielen Dank! Nachricht gesendet.</p>
+</form>
+</section>
+
+<footer class="footer">
+
+<div>
+  <a href="impressum.html">Impressum</a>
+  <a href="datenschutz.html">Datenschutz</a>
 </div>
 
-<!-- PROFIL -->
-<section id="profil">
-  <h2>Profil</h2>
+<div class="footer-contact">
+  Kontakt: Georg Eibner • ☎ 0176 12345678 • info@eibner-ecology.de
+</div>
 
-  <div class="profile">
-    <div>
-      <p>
-        Hier kommt euer Profiltext hin.
-      </p>
-    </div>
-
-    <img src="images/profil.jpg">
-  </div>
-</section>
-
-<!-- LEISTUNGEN -->
-<section id="leistungen" class="services">
-  <h2>Leistungen</h2>
-
-  <div class="service-grid">
-    <div>
-      <ul>
-        <li>Artenschutzgutachten</li>
-        <li>Habitatkartierung</li>
-        <li>Umweltbaubegleitung</li>
-        <li>FFH-Prüfung</li>
-        <li>Faunistische Erfassungen</li>
-        <li>Ökologische Beratung</li>
-      </ul>
-    </div>
-
-    <div class="service-images">
-      <img src="images/service1.jpg">
-      <img src="images/service2.jpg">
-    </div>
-  </div>
-</section>
-
-<!-- LINKS -->
-<section id="links">
-  <h2>Links</h2>
-  <p>Hier kommen eure externen Links.</p>
-</section>
-
-<!-- CONTACT -->
-<section id="kontakt">
-
-  <h2>Kontakt</h2>
-
-  <form class="contact-form" action="https://formspree.io/f/mdawvvoo" method="POST">
-
-      <input type="text" name="name" placeholder="Ihr Name" required>
-      <input type="email" name="email" placeholder="Ihre E-Mail" required>
-      <textarea name="message" rows="6" placeholder="Ihre Nachricht" required></textarea>
-
-      <label class="consent">
-        <input type="checkbox" required>
-        Ich stimme der Speicherung meiner Daten zur Bearbeitung der Anfrage zu.
-      </label>
-
-      <button type="submit">Nachricht senden</button>
-
-      <p class="success-message">Vielen Dank! Ihre Nachricht wurde gesendet.</p>
-
-  </form>
-
-</section>
-
-<!-- LEGAL -->
-<section id="legal" class="legal">
-
-  <h3>Impressum</h3>
-
-  <p>
-    Eibner Ecology<br>
-    Georg Eibner<br>
-    Musterstraße 1<br>
-    55116 Mainz<br>
-    Deutschland<br><br>
-
-    E-Mail: info@eibner-ecology.de<br><br>
-
-    Verantwortlich gemäß §55 Abs. 2 RStV: Georg Eibner
-  </p>
-
-  <h3>Datenschutz</h3>
-
-  <p>
-    Diese Website verwendet ein Kontaktformular über Formspree.
-    Daten werden nur zur Bearbeitung der Anfrage genutzt und nicht weitergegeben.
-    Keine Tracking-Cookies oder Analyse-Tools.
-  </p>
-
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  © 2026 Eibner Ecology
+<p>© 2026 Eibner Ecology</p>
 </footer>
 
-<!-- FORM SCRIPT -->
 <script>
-const form = document.querySelector('.contact-form');
-
-form.addEventListener('submit', function(e){
-  e.preventDefault();
-
-  fetch(form.action, {
-      method:'POST',
-      body:new FormData(form),
-      headers:{'Accept':'application/json'}
-  })
-  .then(response=>{
-      if(response.ok){
-          document.querySelector('.success-message').style.display='block';
-          form.reset();
-      }
-  });
-
+const form=document.querySelector('.contact-form');
+form.addEventListener('submit',function(e){
+e.preventDefault();
+fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+.then(r=>{if(r.ok){document.querySelector('.success-message').style.display='block';form.reset();}});
 });
 </script>
 
