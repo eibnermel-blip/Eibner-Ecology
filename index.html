@@ -5,186 +5,256 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eibner Ecology</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
 <style>
-body{
-  margin:0;
-  font-family:'Inter',sans-serif;
-  background:#f4f4f4;
-  color:#333;
-}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:Inter;background:#F7F3EC;color:#2f3b2f;}
+:root{--dark:#5F7157;--light:#C7D3C0;--cream:#F7F3EC;}
 
 /* HEADER */
-.header{
-  background:#f6f1e7;
-  text-align:center;
-  padding:25px 20px 10px 20px;
-}
-
-.header-inner{
+header{
+  background:var(--cream);
+  padding:20px 40px;
   display:flex;
+  justify-content:space-between;
   align-items:center;
-  justify-content:center;
-  gap:20px;
+  border-bottom:1px solid #ddd;
 }
-
-.logo{ height:70px; }
-
-.header h1{
-  font-family:'Orbitron',sans-serif;
-  font-size:56px;
-  margin:0;
-  color:#4e6b57;
-}
-
-/* NAV */
-.nav{ margin-top:15px; }
-.nav a{
-  margin:0 18px;
-  text-decoration:none;
-  font-weight:600;
-  color:#4e6b57;
-  font-size:18px;
-}
-.nav a:hover{ color:#7c9a87; }
+.site-title{font-family:Playfair Display;font-size:42px;margin:0;}
+nav a{margin-left:20px;text-decoration:none;color:var(--dark);font-weight:600;}
 
 /* HERO */
-.hero{
-  height:420px;
-  background:url("Hero1.jpg") center 20% / cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  font-size:34px;
-  font-weight:600;
-}
+.hero{height:70vh;position:relative;overflow:hidden;}
+.hero img{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0;animation:fade 15s infinite;}
+.hero img:nth-child(1){animation-delay:0s;}
+.hero img:nth-child(2){animation-delay:5s;}
+.hero img:nth-child(3){animation-delay:10s;}
+@keyframes fade{0%{opacity:0}10%{opacity:1}30%{opacity:1}40%{opacity:0}100%{opacity:0}}
 
-/* SECTIONS */
-.section{
-  padding:80px 20px;
-  max-width:1100px;
-  margin:auto;
-}
+section{padding:80px 10%;}
+h2{font-family:Playfair Display;font-size:34px;color:var(--dark);}
 
-.two-col{
-  display:flex;
-  gap:40px;
-  align-items:center;
-}
-
-.profile-pic{
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  object-fit:cover;
-  object-position:center top;
-}
-
-/* CONTACT FORM */
-.contact-form{
-  max-width:500px;
-  margin:auto;
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-}
-input, textarea{
-  padding:12px;
-  border:1px solid #ccc;
-  border-radius:6px;
-}
-button{
-  background:#6E7F61;
-  color:white;
-  border:none;
-  padding:14px;
-  font-size:16px;
-  border-radius:6px;
-  cursor:pointer;
-}
-button:hover{ background:#5c6b52; }
+.contact-form{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:15px;}
+.contact-form input,.contact-form textarea{padding:14px;border-radius:8px;border:1px solid #ccc;}
+.contact-form button{background:#6E7F61;color:white;border:none;padding:14px;font-size:18px;border-radius:8px;}
+.success-message{display:none;color:green;}
+.consent{font-size:13px;text-align:left;}
 
 /* FOOTER */
-footer{
-  margin-top:80px;
-  padding:40px 20px;
-  background:#f6f1e7;
-  text-align:center;
-}
-
-.footer-btn{
-  display:inline-block;
-  margin:10px;
-  padding:10px 18px;
+.footer{
   background:#6E7F61;
   color:white;
-  text-decoration:none;
-  border-radius:6px;
+  text-align:center;
+  padding:40px 20px;
 }
-
-.footer-contact{ margin-bottom:15px; }
-
+.footer a{
+  color:white;
+  margin:0 15px;
+  text-decoration:none;
+  font-weight:600;
+}
+.footer-contact{margin-top:20px;font-size:14px;}
 </style>
 </head>
 
 <body>
 
-<header class="header">
-  <div class="header-inner">
-    <img src="logo.png" class="logo">
-    <h1>Eibner Ecology</h1>
-  </div>
-
-  <nav class="nav">
+<header>
+  <h1 class="site-title">Eibner Ecology</h1>
+  <nav>
     <a href="#profil">Profil</a>
     <a href="#leistungen">Leistungen</a>
     <a href="#kontakt">Kontakt</a>
   </nav>
 </header>
 
-<section class="hero">
-  Nachhaltige ökologische Dienstleistungen
+<div class="hero">
+  <img src="images/hero1.jpg">
+  <img src="images/hero2.jpg">
+  <img src="images/hero3.jpg">
+</div>
+
+<section id="profil">
+<h2>Profil</h2>
+<p>Profiltext hier einfügen.</p>
 </section>
 
-<section id="profil" class="section">
-  <div class="two-col">
-    <div>
-      <h2>Profil</h2>
-      <p>Ökologische Fachberatung und Umweltplanung.</p>
-    </div>
-    <img src="Georg Website Profile Pic.jpg" class="profile-pic">
-  </div>
+<section id="leistungen">
+<h2>Leistungen</h2>
+<p>Leistungen hier einfügen.</p>
 </section>
 
-<section id="leistungen" class="section">
-  <h2>Leistungen</h2>
-  <p>Artenschutz • Umweltplanung • Gutachten • Beratung</p>
+<section id="kontakt">
+<h2>Kontakt</h2>
+
+<form class="contact-form" action="https://formspree.io/f/mdawvvoo" method="POST">
+<input type="text" name="name" placeholder="Ihr Name" required>
+<input type="email" name="email" placeholder="Ihre E-Mail" required>
+<textarea name="message" rows="6" placeholder="Ihre Nachricht" required></textarea>
+
+<label class="consent">
+<input type="checkbox" required>
+Ich stimme der Speicherung meiner Daten zur Bearbeitung zu.
+</label>
+
+<button type="submit">Nachricht senden</button>
+<p class="success-message">Vielen Dank! Nachricht gesendet.</p>
+</form>
 </section>
 
-<section id="kontakt" class="section">
-  <h2>Kontakt</h2>
+<footer class="footer">
 
-  <form class="contact-form" action="https://formspree.io/f/mdawvvoo" method="POST">
-    <input type="text" name="name" placeholder="Ihr Name" required>
-    <input type="email" name="email" placeholder="Ihre E-Mail" required>
-    <textarea name="message" rows="5" placeholder="Ihre Nachricht" required></textarea>
-    <button type="submit">Senden</button>
-  </form>
-</section>
+<div>
+  <a href="impressum.html">Impressum</a>
+  <a href="datenschutz.html">Datenschutz</a>
+</div>
 
-<footer>
-  <div class="footer-contact">
-    <strong>Kontakt</strong><br>
-    Georg Eibner<br>
-    ☎ 06221 1234567<br>
-    ✉ info@eibner-ecology.de
-  </div>
+<div class="footer-contact">
+  Kontakt: Georg Eibner • ☎ 0176 12345678 • info@eibner-ecology.de
+</div>
 
-  <a href="impressum.html" class="footer-btn">Impressum</a>
-  <a href="datenschutz.html" class="footer-btn">Datenschutz</a>
+<p>© 2026 Eibner Ecology</p>
 </footer>
+
+<script>
+const form=document.queryS <!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eibner Ecology</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<style>
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:Inter;background:#F7F3EC;color:#2f3b2f;}
+:root{--dark:#5F7157;--light:#C7D3C0;--cream:#F7F3EC;}
+
+/* HEADER */
+header{
+  background:var(--cream);
+  padding:20px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #ddd;
+}
+.site-title{font-family:Playfair Display;font-size:42px;margin:0;}
+nav a{margin-left:20px;text-decoration:none;color:var(--dark);font-weight:600;}
+
+/* HERO */
+.hero{height:70vh;position:relative;overflow:hidden;}
+.hero img{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0;animation:fade 15s infinite;}
+.hero img:nth-child(1){animation-delay:0s;}
+.hero img:nth-child(2){animation-delay:5s;}
+.hero img:nth-child(3){animation-delay:10s;}
+@keyframes fade{0%{opacity:0}10%{opacity:1}30%{opacity:1}40%{opacity:0}100%{opacity:0}}
+
+section{padding:80px 10%;}
+h2{font-family:Playfair Display;font-size:34px;color:var(--dark);}
+
+.contact-form{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:15px;}
+.contact-form input,.contact-form textarea{padding:14px;border-radius:8px;border:1px solid #ccc;}
+.contact-form button{background:#6E7F61;color:white;border:none;padding:14px;font-size:18px;border-radius:8px;}
+.success-message{display:none;color:green;}
+.consent{font-size:13px;text-align:left;}
+
+/* FOOTER */
+.footer{
+  background:#6E7F61;
+  color:white;
+  text-align:center;
+  padding:40px 20px;
+}
+.footer a{
+  color:white;
+  margin:0 15px;
+  text-decoration:none;
+  font-weight:600;
+}
+.footer-contact{margin-top:20px;font-size:14px;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1 class="site-title">Eibner Ecology</h1>
+  <nav>
+    <a href="#profil">Profil</a>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <img src="images/hero1.jpg">
+  <img src="images/hero2.jpg">
+  <img src="images/hero3.jpg">
+</div>
+
+<section id="profil">
+<h2>Profil</h2>
+<p>Profiltext hier einfügen.</p>
+</section>
+
+<section id="leistungen">
+<h2>Leistungen</h2>
+<p>Leistungen hier einfügen.</p>
+</section>
+
+<section id="kontakt">
+<h2>Kontakt</h2>
+
+<form class="contact-form" action="https://formspree.io/f/mdawvvoo" method="POST">
+<input type="text" name="name" placeholder="Ihr Name" required>
+<input type="email" name="email" placeholder="Ihre E-Mail" required>
+<textarea name="message" rows="6" placeholder="Ihre Nachricht" required></textarea>
+
+<label class="consent">
+<input type="checkbox" required>
+Ich stimme der Speicherung meiner Daten zur Bearbeitung zu.
+</label>
+
+<button type="submit">Nachricht senden</button>
+<p class="success-message">Vielen Dank! Nachricht gesendet.</p>
+</form>
+</section>
+
+<footer class="footer">
+
+<div>
+  <a href="impressum.html">Impressum</a>
+  <a href="datenschutz.html">Datenschutz</a>
+</div>
+
+<div class="footer-contact">
+  Kontakt: Georg Eibner • ☎ 0176 12345678 • info@eibner-ecology.de
+</div>
+
+<p>© 2026 Eibner Ecology</p>
+</footer>
+
+<script>
+const form=document.querySelector('.contact-form');
+form.addEventListener('submit',function(e){
+e.preventDefault();
+fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+.then(r=>{if(r.ok){document.querySelector('.success-message').style.display='block';form.reset();}});
+});
+</script>
+
+</body>
+</html>elector('.contact-form');
+form.addEventListener('submit',function(e){
+e.preventDefault();
+fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+.then(r=>{if(r.ok){document.querySelector('.success-message').style.display='block';form.reset();}});
+});
+</script>
 
 </body>
 </html>
+
