@@ -10,7 +10,7 @@
 <style>
 html{scroll-behavior:smooth;}
 body{margin:0;font-family:Inter;background:#F7F3EC;color:#2f3b2f;}
-:root{--dark:#5F7157;--light:#C7D3C0;--cream:#F7F3EC;}
+:root{--dark:#5F7157;--cream:#F7F3EC;}
 
 /* HEADER */
 header{
@@ -24,9 +24,17 @@ header{
 .site-title{font-family:Playfair Display;font-size:42px;margin:0;}
 nav a{margin-left:20px;text-decoration:none;color:var(--dark);font-weight:600;}
 
-/* HERO */
+/* ⭐ HERO SLIDER (THIS is the ONLY hero now) */
 .hero{height:70vh;position:relative;overflow:hidden;}
-.hero img{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0;animation:fade 15s infinite;}
+.hero img{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 20%; /* ← CHANGE CROP HERE */
+  opacity:0;
+  animation:fade 15s infinite;
+}
 .hero img:nth-child(1){animation-delay:0s;}
 .hero img:nth-child(2){animation-delay:5s;}
 .hero img:nth-child(3){animation-delay:10s;}
@@ -35,6 +43,16 @@ nav a{margin-left:20px;text-decoration:none;color:var(--dark);font-weight:600;}
 section{padding:80px 10%;}
 h2{font-family:Playfair Display;font-size:34px;color:var(--dark);}
 
+/* PROFILE */
+.profile-section{display:flex;align-items:center;gap:40px;max-width:1000px;margin:auto;}
+.profile-pic{
+  width:220px;height:220px;border-radius:50%;
+  object-fit:cover;
+  object-position:center top; /* ← PROFILE CROP HERE */
+}
+.profile-text{max-width:600px;}
+
+/* CONTACT */
 .contact-form{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:15px;}
 .contact-form input,.contact-form textarea{padding:14px;border-radius:8px;border:1px solid #ccc;}
 .contact-form button{background:#6E7F61;color:white;border:none;padding:14px;font-size:18px;border-radius:8px;}
@@ -42,45 +60,9 @@ h2{font-family:Playfair Display;font-size:34px;color:var(--dark);}
 .consent{font-size:13px;text-align:left;}
 
 /* FOOTER */
-.footer{
-  background:#6E7F61;
-  color:white;
-  text-align:center;
-  padding:40px 20px;
-}
-.footer a{
-  color:white;
-  margin:0 15px;
-  text-decoration:none;
-  font-weight:600;
-}
+.footer{background:#6E7F61;color:white;text-align:center;padding:40px 20px;}
+.footer a{color:white;margin:0 15px;text-decoration:none;font-weight:600;}
 .footer-contact{margin-top:20px;font-size:14px;}
-  /* HERO IMAGE */
-.hero{
-  height:420px;
-  background:url("Hero1.jpg") center 20% / cover no-repeat;
-}
-
-/* PROFILE LAYOUT */
-.profile-section{
-  display:flex;
-  align-items:center;
-  gap:40px;
-  max-width:1000px;
-  margin:auto;
-}
-
-.profile-pic{
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  object-fit:cover;
-  object-position:center top;
-}
-
-.profile-text{
-  max-width:600px;
-}
 </style>
 </head>
 
@@ -93,27 +75,25 @@ h2{font-family:Playfair Display;font-size:34px;color:var(--dark);}
     <a href="#leistungen">Leistungen</a>
     <a href="#kontakt">Kontakt</a>
   </nav>
-  <section class="hero"></section>
 </header>
 
+<!-- ⭐ HERO IMAGES LIVE HERE -->
 <div class="hero">
-  <img src="images/hero1.jpg">
-  <img src="images/hero2.jpg">
-  <img src="images/hero3.jpg">
+  <!-- CHANGE HERO IMAGE HERE ↓ -->
+  <img src="Hero1.jpg">
+  <!-- Optional future images -->
+  <!-- <img src="Hero2.jpg"> -->
+  <!-- <img src="Hero3.jpg"> -->
 </div>
 
 <section id="profil">
 <h2>Profil</h2>
 <div class="profile-section">
   <img src="Georg Website Profile pic.jpg" class="profile-pic">
-
   <div class="profile-text">
     <h3>Georg Eibner</h3>
-    <p>
-      Georg Eibner ist Ökologe mit langjähriger Erfahrung in Umweltplanung,
-      Artenschutz und ökologischer Fachberatung. Sein Schwerpunkt liegt
-      auf praxisnahen Lösungen zwischen Naturschutz und Projektentwicklung.
-    </p>
+    <p>Georg Eibner ist Ökologe mit langjähriger Erfahrung in Umweltplanung,
+    Artenschutz und ökologischer Fachberatung.</p>
   </div>
 </div>
 </section>
@@ -125,15 +105,13 @@ h2{font-family:Playfair Display;font-size:34px;color:var(--dark);}
 
 <section id="kontakt">
 <h2>Kontakt</h2>
-
 <form class="contact-form" action="https://formspree.io/f/mdawvvoo" method="POST">
 <input type="text" name="name" placeholder="Ihr Name" required>
 <input type="email" name="email" placeholder="Ihre E-Mail" required>
 <textarea name="message" rows="6" placeholder="Ihre Nachricht" required></textarea>
 
 <label class="consent">
-<input type="checkbox" required>
-Ich stimme der Speicherung meiner Daten zur Bearbeitung zu.
+<input type="checkbox" required> Ich stimme der Speicherung meiner Daten zu.
 </label>
 
 <button type="submit">Nachricht senden</button>
@@ -142,159 +120,18 @@ Ich stimme der Speicherung meiner Daten zur Bearbeitung zu.
 </section>
 
 <footer class="footer">
-
 <div>
   <a href="impressum.html">Impressum</a>
   <a href="datenschutz.html">Datenschutz</a>
 </div>
-
 <div class="footer-contact">
   Kontakt: Georg Eibner • ☎ 0176 12345678 • info@eibner-ecology.de
 </div>
-
-<p>© 2026 Eibner Ecology</p>
-</footer>
-
-<script>
-const form=document.queryS <!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eibner Ecology</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-
-<style>
-html{scroll-behavior:smooth;}
-body{margin:0;font-family:Inter;background:#F7F3EC;color:#2f3b2f;}
-:root{--dark:#5F7157;--light:#C7D3C0;--cream:#F7F3EC;}
-
-/* HEADER */
-header{
-  background:var(--cream);
-  padding:20px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #ddd;
-}
-.site-title{font-family:Playfair Display;font-size:42px;margin:0;}
-nav a{margin-left:20px;text-decoration:none;color:var(--dark);font-weight:600;}
-
-/* HERO */
-.hero{height:70vh;position:relative;overflow:hidden;}
-.hero img{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0;animation:fade 15s infinite;}
-.hero img:nth-child(1){animation-delay:0s;}
-.hero img:nth-child(2){animation-delay:5s;}
-.hero img:nth-child(3){animation-delay:10s;}
-@keyframes fade{0%{opacity:0}10%{opacity:1}30%{opacity:1}40%{opacity:0}100%{opacity:0}}
-
-section{padding:80px 10%;}
-h2{font-family:Playfair Display;font-size:34px;color:var(--dark);}
-
-.contact-form{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:15px;}
-.contact-form input,.contact-form textarea{padding:14px;border-radius:8px;border:1px solid #ccc;}
-.contact-form button{background:#6E7F61;color:white;border:none;padding:14px;font-size:18px;border-radius:8px;}
-.success-message{display:none;color:green;}
-.consent{font-size:13px;text-align:left;}
-
-/* FOOTER */
-.footer{
-  background:#6E7F61;
-  color:white;
-  text-align:center;
-  padding:40px 20px;
-}
-.footer a{
-  color:white;
-  margin:0 15px;
-  text-decoration:none;
-  font-weight:600;
-}
-.footer-contact{margin-top:20px;font-size:14px;}
-</style>
-</head>
-
-<body>
-
-<header>
-  <h1 class="site-title">Eibner Ecology</h1>
-  <nav>
-    <a href="#profil">Profil</a>
-    <a href="#leistungen">Leistungen</a>
-    <a href="#kontakt">Kontakt</a>
-  </nav>
-</header>
-
-<div class="hero">
-  <img src="images/hero1.jpg">
-  <img src="images/hero2.jpg">
-  <img src="images/hero3.jpg">
-</div>
-
-<section id="profil">
-<h2>Profil</h2>
-<div class="profile-section">
-  <img src="Georg Website Profile pic.jpg" class="profile-pic">
-
-  <div class="profile-text">
-    <p>
-      Georg Eibner ist Ökologe mit langjähriger Erfahrung in Umweltplanung,
-      Artenschutz und ökologischer Beratung.
-    </p>
-  </div>
-</div>
-</section>
-
-<section id="leistungen">
-<h2>Leistungen</h2>
-<p>Leistungen hier einfügen.</p>
-</section>
-
-<section id="kontakt">
-<h2>Kontakt</h2>
-
-<form class="contact-form" action="https://formspree.io/f/mdawvvoo" method="POST">
-<input type="text" name="name" placeholder="Ihr Name" required>
-<input type="email" name="email" placeholder="Ihre E-Mail" required>
-<textarea name="message" rows="6" placeholder="Ihre Nachricht" required></textarea>
-
-<label class="consent">
-<input type="checkbox" required>
-Ich stimme der Speicherung meiner Daten zur Bearbeitung zu.
-</label>
-
-<button type="submit">Nachricht senden</button>
-<p class="success-message">Vielen Dank! Nachricht gesendet.</p>
-</form>
-</section>
-
-<footer class="footer">
-
-<div>
-  <a href="impressum.html">Impressum</a>
-  <a href="datenschutz.html">Datenschutz</a>
-</div>
-
-<div class="footer-contact">
-  Kontakt: Georg Eibner • ☎ 0176 12345678 • info@eibner-ecology.de
-</div>
-
 <p>© 2026 Eibner Ecology</p>
 </footer>
 
 <script>
 const form=document.querySelector('.contact-form');
-form.addEventListener('submit',function(e){
-e.preventDefault();
-fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
-.then(r=>{if(r.ok){document.querySelector('.success-message').style.display='block';form.reset();}});
-});
-</script>
-
-</body>
-</html>elector('.contact-form');
 form.addEventListener('submit',function(e){
 e.preventDefault();
 fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
