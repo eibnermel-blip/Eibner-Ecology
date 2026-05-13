@@ -55,7 +55,47 @@ h2{font-family:Playfair Display;font-size:34px;color:var(--dark);}
   text-align:justify;
   line-height:1.7;
 }
+/* LEISTUNGEN LAYOUT */
+.leistungen-grid{
+  display:flex;
+  gap:40px;
+  align-items:flex-start;
+  max-width:1000px;
+  margin:auto;
+}
 
+.leistungen-text{
+  flex:1;
+}
+
+.leistungen-img{
+  width:320px;
+  height:auto;
+  border-radius:12px;
+  object-fit:cover;
+}
+
+.leistungen-text ul{
+  padding-left:18px;
+  line-height:1.7;
+}
+.leistungen-text ul ul{
+  margin-top:8px;
+  margin-bottom:10px;
+  padding-left:20px;
+  font-size:0.95em;
+  color:#444;
+}
+/* mobile */
+@media(max-width:800px){
+  .leistungen-grid{
+    flex-direction:column;
+  }
+
+  .leistungen-img{
+    width:100%;
+  }
+}
 /* CONTACT */
 .contact-form{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:15px;}
 .contact-form input,.contact-form textarea{padding:14px;border-radius:8px;border:1px solid #ccc;}
@@ -114,7 +154,35 @@ h2{font-family:Playfair Display;font-size:34px;color:var(--dark);}
 
 <section id="leistungen">
 <h2>Leistungen</h2>
-<p>Leistungen hier einfügen.</p>
+
+<div class="leistungen-grid">
+
+  <!-- LEFT SIDE: LIST -->
+  <div class="leistungen-text">
+    <ul>
+      <li>Ökologische Gutachten und Fachbeiträge</li>
+      <li>Artenschutzrechtliche Prüfungen (saP, ASP)</li>
+      <li>Biotopkartierung und Feldökologie</li>
+      <li>Umweltplanung und Projektberatung</li>
+      <li>Habitat- und Artenmonitoring  
+  <ul>
+    <li>Makrozoobenthos</li>
+    <li>Vögel</li>
+    <li>Eidechsen</li>
+    <li>Fledermäuse</li>
+    <li>Kleinsäuger</li>
+  </ul>
+</li>
+      <li>Genomanalytische Auswertungen</li>
+      <li>Wildtierökologie mit Schwerpunkt Kleinsäuger</li>
+    </ul>
+  </div>
+
+  <!-- RIGHT SIDE: IMAGE -->
+  <img src="leistungen.jpg" class="leistungen-img">
+
+</div>
+</section>
 </section>
 
 <section id="kontakt">
